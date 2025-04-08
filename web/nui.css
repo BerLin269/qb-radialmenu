@@ -1,0 +1,227 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    height: 100vh;
+}
+
+.radial-menu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 9999 !important;
+    filter: drop-shadow(0px 0px 5px);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+
+@keyframes zoomOut {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+.menu-center {
+    position: absolute;
+    font-size: 12pt;
+    color: #fff;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.2s ease;
+    font-weight: bold;
+    font-family: "Oswald", sans-serif;
+    text-transform: uppercase;
+}
+
+.menu-item {
+    position: absolute;
+    width: 78pt;
+    height: 120px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), 
+                background-color 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: center;
+    filter: brightness(100%);
+    cursor: pointer;
+    will-change: transform, background-color;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    background-image: url("data:image/svg+xml,%3Csvg width='104' height='120' viewBox='0 0 104 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='52 2, 102 30, 102 90, 52 118, 2 90, 2 30' fill='none' stroke='%23fff3' stroke-width='2'/%3E%3C/svg%3E"),
+                      linear-gradient(to bottom, #212121 20%, #1b1b1b 100%);
+    background-position: center;
+    background-size: cover;
+}
+
+.menu-item i {
+    font-size: 1.5em;
+    color: #ffffff;
+    transition: color 0.2s ease;
+    margin-bottom: 5px;
+}
+
+.menu-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.menu-item:hover {
+    background-image: url("data:image/svg+xml,%3Csvg width='104' height='120' viewBox='0 0 104 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='52 2, 102 30, 102 90, 52 118, 2 90, 2 30' fill='none' stroke='%231e90ff' stroke-width='2'/%3E%3C/svg%3E"),
+                      linear-gradient(to bottom, #312e2e 20%, #1b1b1b 100%);
+}
+
+.menu-item:hover i {
+    color: dodgerblue;
+}
+
+.menu-item.close-button {
+    background-image: url("data:image/svg+xml,%3Csvg width='115' height='100' viewBox='0 0 115 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='29 0, 86 0, 115 50, 86 100, 29 100, 0 50' fill='none' stroke='%238F0F0F' stroke-width='2'/%3E%3C/svg%3E"),
+                    linear-gradient(to top, #e25555 20%, #8b2727 100%);
+}
+
+.menu-item.close-button:hover {
+    background-image: url("data:image/svg+xml,%3Csvg width='115' height='100' viewBox='0 0 115 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='29 0, 86 0, 115 50, 86 100, 29 100, 0 50' fill='none' stroke='%238F0F0F' stroke-width='2'/%3E%3C/svg%3E"),
+                    linear-gradient(to bottom, #e25555 20%, #8b2727 100%);
+}
+
+.menu-item.close-button i {
+    font-size: 30px;
+    color: #d3d3d3;
+    transition: color 0.2s ease;
+}
+
+.menu-label {
+    font-size: 0.95vh;
+    margin-top: 8px;
+    color: #fff;
+    padding: 1.5px 0.75pt;
+    opacity: 0.8;
+    white-space: pre-line;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 65%;
+    user-select: none;
+    font-family: "Oswald", sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Hexagon menu items (for submenu) */
+.menu-item2 {
+    position: absolute;
+    width: 115px;
+    height: 100px;
+    clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    transform-origin: center;
+    filter: brightness(100%);
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg width='115' height='100' viewBox='0 0 115 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='29 0, 86 0, 115 50, 86 100, 29 100, 0 50' fill='none' stroke='%23515552' stroke-width='2'/%3E%3C/svg%3E"),
+                      linear-gradient(to bottom, #212121 20%, #1b1b1b 100%);
+}
+
+.menu-item2 i {
+    font-size: 25px;
+    color: #d3d3d3;
+    transition: color 0.2s ease;
+}
+
+.menu-item2:hover {
+    background-image: url("data:image/svg+xml,%3Csvg width='115' height='100' viewBox='0 0 115 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='29 0, 86 0, 115 50, 86 100, 29 100, 0 50' fill='none' stroke='%238F9197' stroke-width='2'/%3E%3C/svg%3E"),
+                      linear-gradient(to bottom, #2a2a2b 20%, #1b1b1b 100%);
+}
+
+.menu-item2:hover i {
+    color: dodgerblue;
+}
+
+.menu-item2.close-button {
+    background-image: url("data:image/svg+xml,%3Csvg width='115' height='100' viewBox='0 0 115 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='29 0, 86 0, 115 50, 86 100, 29 100, 0 50' fill='none' stroke='%238F0F0F' stroke-width='2'/%3E%3C/svg%3E"),
+                      linear-gradient(to top, #e25555 20%, #8b2727 100%);
+}
+
+.menu-item2.close-button:hover {
+    background-image: url("data:image/svg+xml,%3Csvg width='115' height='100' viewBox='0 0 115 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='29 0, 86 0, 115 50, 86 100, 29 100, 0 50' fill='none' stroke='%238F0F0F' stroke-width='2'/%3E%3C/svg%3E"),
+                      linear-gradient(to bottom, #e25555 20%, #8b2727 100%);
+}
+
+.menu-label2 {
+    font-size: 0.95vh;
+    margin-top: 8px;
+    color: #fff;
+    padding: 1.5px 0.75pt;
+    opacity: 0.8;
+    white-space: pre-line;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 65%;
+    user-select: none;
+    font-family: "Oswald", sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Submenu styling */
+.submenu {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+}
+
+.submenu-item, .back-item {
+    width: 45pt;
+    height: 45pt;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.submenu-item:hover, .back-item:hover {
+    background-color: #000;
+} 
