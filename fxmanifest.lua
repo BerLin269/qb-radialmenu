@@ -5,7 +5,7 @@ author 'Kakarot'
 description 'Allows players quick access to a menu for various actions'
 version '1.2.0'
 
-ui_page 'html/index.html'
+ui_page 'web/nui.html'
 
 shared_scripts {
     'config.lua',
@@ -27,8 +27,8 @@ server_scripts {
 }
 
 files {
-    'html/index.html',
-    'html/css/main.css',
-    'html/js/main.js',
-    'html/js/RadialMenu.js',
+    'web/nui.html',
+    'web/nui.css',
+    'web/nui.js',
+    'web/audio.wav'
 }
