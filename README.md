@@ -2,7 +2,7 @@
 Radial Menu Used With QB-Core :arrows_counterclockwise:
 
 
-[Preview] (https://cdn.discordapp.com/attachments/1331471979244687481/1358984836869783763/image.png)
+[Preview] (https://cdn.discordapp.com/attachments/1331471979244687481/1358984836869783763/image.png?ex=67f67d81&is=67f52c01&hm=01dd3b2194fe98c5fb0cda3158081be1a428e22848592e4f5fe93a23f5e8ffd5&)
 
 
 **Now using FontAwesome Icons!**
