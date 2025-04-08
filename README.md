@@ -1,9 +1,7 @@
 # qb-radialmenu
 Radial Menu Used With QB-Core :arrows_counterclockwise:
 
-
-[Preview] (https://cdn.discordapp.com/attachments/1331471979244687481/1358984836869783763/image.png?ex=67f67d81&is=67f52c01&hm=01dd3b2194fe98c5fb0cda3158081be1a428e22848592e4f5fe93a23f5e8ffd5&)
-
+![image](https://github.com/user-attachments/assets/5085dae1-3223-49d3-b00d-a38497a05862)
 
 **Now using FontAwesome Icons!**
 To change icons get the name from [FontAwesome](https://fontawesome.com/v5.0/icons?d=gallery&p=2&s=brands,light,regular,solid&m=free) (v5) and use the icon's name in the config.lua for the icon (no `fa-` or `#` just the name like `arrow-right`)
